@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <title>实时日期、时间和二维码生成</title>
-</head>
-<body>
-    <div id="qrcode"></div>
+<html lang = “en”  >
+<头>
+    <元字符集=“UTF-8”>
+    <元名称=“视口”内容=“宽度=设备宽度，纵向宽度=1.0”>
+    < src = “https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js” > </脚本>
+    < title >实时日期、时间和二维码生成</ title>
+</头>
+<正文>
+    < div id = “二维码” > </div>
     
-    <script>
-        function updateDateTimeAndQRCode() {
-            // 获取当前日期和时间
-            var currentDate = new Date();
-            var formattedDateTime = currentDate.toISOString().replace(/[-:T]/g, '').substring(0, 8) + ' ' + currentDate.toTimeString().substring(0, 8);
+    <脚本>
+        函数 updateDateTimeAndQRCode() {function updateDateTimeAndQRCode() {
+            // 获取当前日期和时间// 获取当前日期和时间
+            var currentDate = new Date();var currentDate = new Date();
+            var formattedDateTime = currentDate.toISOString().replace(/[-:T]/g, '').substring(0, 8) + ' ' + currentDate.toTimeString().substring(0, 8);var formattedDateTime = currentDate.toISOString().replace(/[-:T]/g, '').substring(0, 8) + ' ' + currentDate.toTimeString().substring(0, 8);
 
-            // 更新页面显示的日期和时间
-            document.getElementById('qrcode').innerHTML = "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime;
+            // 更新页面显示的日期和时间// 更新页面显示的日期和时间
+            document.getElementById('qrcode').innerHTML = "empno:S1310450;UDID:81d7c863;状态:锁定;时间:" + formattedDateTime;getElementById('qrcode').innerHTML = "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime;
 
-            // 使用qrcode.js生成二维码
-            var qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime,
-                width: 128,
-                height: 128
-            });
-        }
+            // 使用qrcode.js生成二维码// 使用qrcode.js生成二维码
+            var qrcode = new QRCode(document.getElementById("qrcode"), {var qrcode = new QRCode(document.getElementById("qrcode"), {
+                文本：“empno：S1310450；UDID：81d7c863；状态：锁定；时间：”+ formattedDateTime，text: "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime,
+                宽度：128，width: 128,
+                身高：128height: 128
+            });});
+        }}
 
-        // 初始加载
-        updateDateTimeAndQRCode();
+        // 初始加载// 初始加载
+        updateDateTimeAndQRCode();updateDateTimeAndQRCode();
 
-        // 每5分钟更新一次
-        setInterval(updateDateTimeAndQRCode, 300000);  // 300,000 毫秒等于 5 分钟
-    </script>
-</body>
-</html>
+        // 每5分钟更新一次// 每5分钟更新一次
+        setInterval(updateDateTimeAndQRCode, 300000); // 300,000 相当于 5 分钟setInterval(updateDateTimeAndQRCode, 300000);  // 300,000 毫秒等于 5 分钟
+    </脚本></script>
+</</正文>>
+</</html>>
