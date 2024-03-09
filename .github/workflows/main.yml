@@ -1,0 +1,37 @@
+名称：部署到 GitHub 页面
+
+在：
+  推：
+    分支机构：
+      - main   # 适用于默认分支为main，若有其他分支，请调整
+
+工作：
+  建造：
+    运行： ubuntu-latest
+
+    脚步：
+    -名称：签出存储库
+      使用： actions/checkout@v2
+
+    -名称：设置 Node.js
+      使用： actions/setup-node@v3
+      和：
+        节点版本：14
+
+    -名称：安装依赖项
+      run : npm install   # 如果有其他依赖，请相应调整
+
+    -名称：构建和部署
+      运行：|
+        npm run build # 这里执行构建命令
+        mkdir -p 部署
+        cp -r * 部署/
+        cd 部署
+        git初始化
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git 添加 .
+        git commit -m“从 GitHub Action 部署”
+        git push --force --quiet "https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" master:gh-pages
+      环境：
+        GITHUB_TOKEN : $ {  {秘密.GITHUB_TOKEN } }
