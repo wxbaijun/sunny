@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <title>实时日期、时间和二维码生成</title>
+</head>
+<body>
+    <div id="qrcode"></div>
+    
+    <script>
+        function updateDateTimeAndQRCode() {
+            // 获取当前日期和时间
+            var currentDate = new Date();
+            var formattedDateTime = currentDate.toISOString().replace(/[-:T]/g, '').substring(0, 8) + ' ' + currentDate.toTimeString().substring(0, 8);
+
+            // 更新页面显示的日期和时间
+            document.getElementById('qrcode').innerHTML = "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime;
+
+            // 使用qrcode.js生成二维码
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: "empno:S1310450;UDID:81d7c863;status:lock;time:" + formattedDateTime,
+                width: 128,
+                height: 128
+            });
+        }
+
+        // 初始加载
+        updateDateTimeAndQRCode();
+
+        // 每5分钟更新一次
+        setInterval(updateDateTimeAndQRCode, 300000);  // 300,000 毫秒等于 5 分钟
+    </script>
+</body>
+</html>
